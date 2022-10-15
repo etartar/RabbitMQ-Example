@@ -8,32 +8,32 @@ namespace Consumer
     {
         static void Main(string[] args)
         {
-            ConnectionFactory factory = new ConnectionFactory()
+            while (true)
             {
-                HostName = "localhost",
-            };
-
-            using (IConnection connection = factory.CreateConnection())
-            using (IModel channel = connection.CreateModel())
-            {
-                channel.QueueDeclare("mesajkuyrugu", false, false, false);
-                EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
-
-                consumer.Received += (sender, e) =>
+                ConnectionFactory factory = new ConnectionFactory()
                 {
-                    var msg = Encoding.UTF8.GetString(e.Body.Span);
-                    Console.WriteLine("Mesaj alındı: " + msg);
+                    HostName = "localhost",
                 };
 
-                consumer.Registered += (sender, e) =>
+                using (IConnection connection = factory.CreateConnection())
+                using (IModel channel = connection.CreateModel())
                 {
-                    Console.WriteLine("Registered.");
-                };
+                    channel.QueueDeclare("mesajkuyrugu", false, false, false);
+                    EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
 
-                /// autoAck : Kuruktan alınan mesajın silinip silinmemesini sağlıyor. 
-                /// Bazen kuyruktan alınan mesaj işlenirken beklenmeyen hatalarla karşılaşılabiliyor. 
-                /// O yüzden mesajı başarılı bir şekilde işlemeksizin kuyruktan silinmesini pek önermeyiz.
-                channel.BasicConsume("mesajkuyrugu", false, consumer);
+                    consumer.Received += (sender, e) =>
+                    {
+                        var msg = Encoding.UTF8.GetString(e.Body.ToArray());
+                        Console.WriteLine("Mesaj alındı: " + msg);
+                    };
+
+                    /// autoAck : Kuruktan alınan mesajın silinip silinmemesini sağlıyor. 
+                    /// Bazen kuyruktan alınan mesaj işlenirken beklenmeyen hatalarla karşılaşılabiliyor. 
+                    /// O yüzden mesajı başarılı bir şekilde işlemeksizin kuyruktan silinmesini pek önermeyiz.
+                    channel.BasicConsume("mesajkuyrugu", false, consumer);
+                }
+
+                Thread.Sleep(30000);
             }
 
             Console.ReadKey();
