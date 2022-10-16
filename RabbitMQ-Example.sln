@@ -14,18 +14,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- SmartQueueArchitecture",
 		2- SmartQueueArchitecture\README.txt = 2- SmartQueueArchitecture\README.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer", "2- SmartQueueArchitecture\Producer\Producer.csproj", "{B6ED28DF-41DE-496E-B58F-9E55B47F9ACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer", "2- SmartQueueArchitecture\Producer\Producer.csproj", "{B6ED28DF-41DE-496E-B58F-9E55B47F9ACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "2- SmartQueueArchitecture\Consumer\Consumer.csproj", "{0FA1271D-3283-4531-A7B6-FFCFED6CFE13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer", "2- SmartQueueArchitecture\Consumer\Consumer.csproj", "{0FA1271D-3283-4531-A7B6-FFCFED6CFE13}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- FanoutExchange", "3- FanoutExchange", "{2E290CBB-EA6F-4130-930D-DD5471AAC47D}"
 	ProjectSection(SolutionItems) = preProject
 		3- FanoutExchange\README.txt = 3- FanoutExchange\README.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer", "3- FanoutExchange\Producer\Producer.csproj", "{D4E2692B-CE63-4349-AEEC-2165A0C1942B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer", "3- FanoutExchange\Producer\Producer.csproj", "{D4E2692B-CE63-4349-AEEC-2165A0C1942B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "3- FanoutExchange\Consumer\Consumer.csproj", "{308163F7-72CD-4AED-B960-1A5A420A3CD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer", "3- FanoutExchange\Consumer\Consumer.csproj", "{308163F7-72CD-4AED-B960-1A5A420A3CD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4- DirectExchange", "4- DirectExchange", "{74E3A5FA-75C0-4E66-88B1-1964AC763F86}"
+	ProjectSection(SolutionItems) = preProject
+		4- DirectExchange\RabbitMQ-Direct-Exchange.jpg = 4- DirectExchange\RabbitMQ-Direct-Exchange.jpg
+		4- DirectExchange\README.txt = 4- DirectExchange\README.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer", "4- DirectExchange\Producer\Producer.csproj", "{35C06C81-215E-40E1-8AA4-B266B327D862}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "4- DirectExchange\Consumer\Consumer.csproj", "{EED41F10-752F-4E5B-8747-D9B1C8546B51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +67,14 @@ Global
 		{308163F7-72CD-4AED-B960-1A5A420A3CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{308163F7-72CD-4AED-B960-1A5A420A3CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{308163F7-72CD-4AED-B960-1A5A420A3CD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35C06C81-215E-40E1-8AA4-B266B327D862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35C06C81-215E-40E1-8AA4-B266B327D862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35C06C81-215E-40E1-8AA4-B266B327D862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35C06C81-215E-40E1-8AA4-B266B327D862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EED41F10-752F-4E5B-8747-D9B1C8546B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED41F10-752F-4E5B-8747-D9B1C8546B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED41F10-752F-4E5B-8747-D9B1C8546B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED41F10-752F-4E5B-8747-D9B1C8546B51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +86,8 @@ Global
 		{0FA1271D-3283-4531-A7B6-FFCFED6CFE13} = {09329A2A-5D9C-4978-8219-85F518F81D5A}
 		{D4E2692B-CE63-4349-AEEC-2165A0C1942B} = {2E290CBB-EA6F-4130-930D-DD5471AAC47D}
 		{308163F7-72CD-4AED-B960-1A5A420A3CD2} = {2E290CBB-EA6F-4130-930D-DD5471AAC47D}
+		{35C06C81-215E-40E1-8AA4-B266B327D862} = {74E3A5FA-75C0-4E66-88B1-1964AC763F86}
+		{EED41F10-752F-4E5B-8747-D9B1C8546B51} = {74E3A5FA-75C0-4E66-88B1-1964AC763F86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D68637F9-A690-4ADB-84B0-8E469971D1C8}
