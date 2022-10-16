@@ -16,16 +16,21 @@ namespace Producer
             using (IConnection connection = factory.CreateConnection())
             using (IModel channel = connection.CreateModel())
             {
-                channel.QueueDeclare(QueueNames.DefaultQueueName, durable: true, false, false, null);
+                channel.ExchangeDeclare(ExchangeNames.TOPIC_EXCHANGE_NAME, type: ExchangeType.Topic);
 
                 for (int i = 0; i <= 100; i++)
                 {
-                    byte[] msg = Encoding.UTF8.GetBytes($"is - {i}");
+                    byte[] msg = Encoding.UTF8.GetBytes($"{i}. görev verildi");
 
                     IBasicProperties properties = channel.CreateBasicProperties();
                     properties.Persistent = true;
 
-                    channel.BasicPublish(exchange: "", routingKey: QueueNames.DefaultQueueName, basicProperties: properties, body: msg);
+                    string routingKey = "Asker.Subay.";
+                    routingKey += i % 2 == 0 
+                        ? RoutingKeys.TOPIC_EXCHANGE_YUZBASI
+                        : (i % 11 == 0 ? RoutingKeys.TOPIC_EXCHANGE_BINBASI : RoutingKeys.TOPIC_EXCHANGE_TEGMEN);
+
+                    channel.BasicPublish(exchange: ExchangeNames.TOPIC_EXCHANGE_NAME, routingKey: routingKey, basicProperties: properties, body: msg);
                 }
             }
         }
