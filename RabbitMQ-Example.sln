@@ -20,6 +20,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consumer", "2- SmartQueueAr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- FanoutExchange", "3- FanoutExchange", "{2E290CBB-EA6F-4130-930D-DD5471AAC47D}"
 	ProjectSection(SolutionItems) = preProject
+		3- FanoutExchange\RabbitMQ-Fanout-Exchange.png = 3- FanoutExchange\RabbitMQ-Fanout-Exchange.png
 		3- FanoutExchange\README.txt = 3- FanoutExchange\README.txt
 	EndProjectSection
 EndProject
@@ -36,6 +37,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producer", "4- DirectExchange\Producer\Producer.csproj", "{35C06C81-215E-40E1-8AA4-B266B327D862}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "4- DirectExchange\Consumer\Consumer.csproj", "{EED41F10-752F-4E5B-8747-D9B1C8546B51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Kernel", "Shared.Kernel\Shared.Kernel.csproj", "{AF46617E-E6DE-487B-AC6D-2606BF92A508}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +78,10 @@ Global
 		{EED41F10-752F-4E5B-8747-D9B1C8546B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EED41F10-752F-4E5B-8747-D9B1C8546B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EED41F10-752F-4E5B-8747-D9B1C8546B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF46617E-E6DE-487B-AC6D-2606BF92A508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF46617E-E6DE-487B-AC6D-2606BF92A508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF46617E-E6DE-487B-AC6D-2606BF92A508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF46617E-E6DE-487B-AC6D-2606BF92A508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

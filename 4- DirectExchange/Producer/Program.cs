@@ -1,6 +1,7 @@
 ﻿using RabbitMQ.Client.Events;
 using RabbitMQ.Client;
 using System.Text;
+using Shared.Kernel.Constants;
 
 namespace Producer
 {
@@ -16,7 +17,7 @@ namespace Producer
             using (IConnection connection = factory.CreateConnection())
             using (IModel channel = connection.CreateModel())
             {
-                channel.ExchangeDeclare("directExchange", type: ExchangeType.Direct);
+                channel.ExchangeDeclare(ExchangeNames.DIRECT_EXCHANGE_NAME, type: ExchangeType.Direct);
                 
                 for (int i = 0; i <= 100; i++)
                 {
@@ -25,9 +26,9 @@ namespace Producer
                     IBasicProperties properties = channel.CreateBasicProperties();
                     properties.Persistent = true;
 
-                    string routingKey = i % 2 == 0 ? "ciftsayilar" : "teksayilar";
+                    string routingKey = i % 2 == 0 ? RoutingKeys.DIRECT_EXCHANGE_KEY2 : RoutingKeys.DIRECT_EXCHANGE_KEY1;
 
-                    channel.BasicPublish(exchange: "directExchange", routingKey: routingKey, basicProperties: properties, body: msg);
+                    channel.BasicPublish(exchange: ExchangeNames.DIRECT_EXCHANGE_NAME, routingKey: routingKey, basicProperties: properties, body: msg);
                 }
             }
         }

@@ -1,5 +1,6 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using Shared.Kernel.Constants;
 using System.Text;
 
 namespace Consumer
@@ -16,10 +17,10 @@ namespace Consumer
             using (IConnection connection = factory.CreateConnection())
             using (IModel channel = connection.CreateModel())
             {
-                channel.ExchangeDeclare("workingQueue", type: ExchangeType.Fanout);
+                channel.ExchangeDeclare(ExchangeNames.FANOUT_EXCHANGE_NAME, type: ExchangeType.Fanout);
 
                 string queueName = channel.QueueDeclare().QueueName;
-                channel.QueueBind(queue: queueName, exchange: "workingQueue", routingKey: "");
+                channel.QueueBind(queue: queueName, exchange: ExchangeNames.FANOUT_EXCHANGE_NAME, routingKey: "");
 
                 channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
 
